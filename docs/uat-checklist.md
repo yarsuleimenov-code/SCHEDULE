@@ -55,3 +55,33 @@ UAT can pass with known limitations only if:
 - workaround is documented;
 - owner and follow-up phase are assigned.
 
+## Phase 1 UAT Result
+
+Status: accepted.
+
+Manual UAT result:
+
+| Check | Result |
+|---|---|
+| `frontend/index.html` opens locally | Passed |
+| Schedule generation works | Passed |
+| `trips` are created from rules | Passed |
+| `trip_events` are created from rules | Passed |
+| Calendar View is built from `trip_events` | Passed |
+| Trip Details works | Passed |
+| Manual Override works | Passed |
+| Override reason is required | Passed |
+| Calendar View updates after override | Passed |
+| Holidays are displayed | Passed |
+| Export / Import works | Passed |
+| Validation errors | 0 |
+| Holiday warnings | Accepted as expected warnings |
+| Phase 1 Functional Wireframe | Accepted |
+
+Decision:
+
+```text
+Phase 1 Functional Wireframe accepted.
+Proceed to Phase 1.1 Stabilization before backend.
+```
+

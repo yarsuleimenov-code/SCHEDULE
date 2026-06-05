@@ -150,3 +150,62 @@ Phase 0 считается готовой, если:
 ```bash
 node tools/validate_schedule_data.js
 ```
+
+## Phase 1.1 Stabilization Before Backend
+
+Status: completed.
+
+Purpose:
+
+- document frontend module responsibilities;
+- document backend readiness;
+- add smoke coverage for the schedule engine before backend work;
+- keep Calendar View as generated output from `trip_events`.
+
+Documents:
+
+- [Frontend Architecture](docs/frontend-architecture.md)
+- [Backend Readiness](docs/backend-readiness.md)
+
+Smoke test:
+
+```bash
+node tools/smoke_test_schedule_engine.js
+```
+
+The smoke test verifies:
+
+- 3-month generation creates trips;
+- 3-month generation creates trip_events;
+- calendar rows can be derived from trip_events;
+- manual override sets `source = manual_override`;
+- audit_log record is created;
+- export JSON shape contains all normalized entities.
+
+Recommended checks:
+
+```bash
+node tools/validate_schedule_data.js
+node tools/smoke_test_schedule_engine.js
+node --check frontend/js/app.js
+node --check frontend/js/storage.js
+node --check frontend/js/mockData.js
+node --check frontend/js/scheduleEngine.js
+node --check frontend/js/calendarView.js
+node --check frontend/js/tripsView.js
+node --check frontend/js/tripDetails.js
+node --check frontend/js/rulesView.js
+node --check frontend/js/zonesView.js
+node --check frontend/js/holidaysView.js
+node --check frontend/js/exportImport.js
+node --check frontend/js/auditLog.js
+node --check tools/validate_schedule_data.js
+node --check tools/smoke_test_schedule_engine.js
+```
+
+Codex bundled Node on this Windows workspace:
+
+```powershell
+& 'C:\Users\YarSuleimenov\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' tools\validate_schedule_data.js
+& 'C:\Users\YarSuleimenov\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' tools\smoke_test_schedule_engine.js
+```
