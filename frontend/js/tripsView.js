@@ -19,13 +19,13 @@
     return `
       <section class="view-header">
         <div>
-          <h2>Trips List</h2>
-          <p>Trips are generated from schedule_rules and route data.</p>
+          <h2>Trip Planning List</h2>
+          <p>Generated trips with pickup, departure, delivery, and unloading windows.</p>
         </div>
       </section>
       <div class="summary-grid">
         <div class="metric"><span>Trips</span><strong>${state.trips.length}</strong></div>
-        <div class="metric"><span>Trip events</span><strong>${state.trip_events.length}</strong></div>
+        <div class="metric"><span>Timeline records</span><strong>${state.trip_events.length}</strong></div>
         <div class="metric"><span>Manual overrides</span><strong>${state.trip_events.filter((event) => event.source === "manual_override").length}</strong></div>
         <div class="metric"><span>Holiday events</span><strong>${state.trip_events.filter((event) => event.is_holiday).length}</strong></div>
       </div>
@@ -52,4 +52,3 @@
 
   window.TripsView = { render };
 })();
-

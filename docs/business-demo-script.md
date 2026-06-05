@@ -20,8 +20,10 @@ Source of truth: routes / trips / trip_events / zones / schedule_rules / holiday
 - Demo работает локально без backend.
 - Default route: `NJ1 -> CA1`.
 - Schedule генерируется на 3 месяца.
-- Gantt/calendar view строится из `trip_events`.
-- Trip Details показывает конкретный рейс и его timeline.
+- Schedule Board показывает рейсы как основной planning surface.
+- Zone Calendar строится из `trip_events` и остается advanced view.
+- Trip Timeline показывает конкретный рейс и его события.
+- Schedule Alerts показывает holidays, manual overrides и moved/cancelled events.
 - Manual Override требует причину.
 - Change History фиксирует изменение.
 - Export Demo JSON показывает backend/API-ready структуру.
@@ -30,12 +32,12 @@ Source of truth: routes / trips / trip_events / zones / schedule_rules / holiday
 
 | Проблема в Google Sheets | Что показывает demo |
 |---|---|
-| Горизонтальные ячейки являются ручным источником правды | Calendar строится из нормализованных `trip_events` |
+| Горизонтальные ячейки являются ручным источником правды | Schedule Board и Zone Calendar строятся из нормализованных `trip_events` |
 | Смешаны даты, зоны, события, цвета и комментарии | Данные разделены на routes, trips, trip_events, zones, rules, holidays |
 | Ручной перенос легко ломает логику | Override требует reason и пишет Change History |
 | Праздники видны только цветом | Holiday хранится как флаг `is_holiday` |
 | Нельзя стабильно экспортировать данные | Export Demo JSON содержит все сущности |
-| Сложно считать SLA и отклонения | Trip Timeline дает структурированные события |
+| Сложно считать SLA и отклонения | Trip Timeline и Schedule Alerts дают структурированные события |
 
 ## Demo Flow на 5-7 минут
 
@@ -46,19 +48,25 @@ Source of truth: routes / trips / trip_events / zones / schedule_rules / holiday
    - default route `NJ1 -> CA1`;
    - no backend dependency for demo.
 3. Нажать `Generate 3-Month Schedule`.
-4. Показать Calendar View:
-   - Gantt/calendar view;
+4. Показать `Schedule Board`:
+   - это главный экран для бизнеса;
+   - каждая карточка - конкретный trip;
+   - даты pickup/departure/delivery/unloading видны без чтения горизонтальной таблицы.
+5. Открыть любой trip в `Trip Timeline`.
+6. В Trip Timeline выбрать событие, изменить date/status/zone/notes и указать override reason.
+7. Открыть `Schedule Alerts` и показать, что override/holiday попадают в операционный список исключений.
+8. Открыть `Zone Calendar`:
+   - это advanced view по зонам и датам;
    - legend: Pickup, Truck Loading, Departure, Transit, Delivery, Unloading, Holiday, Manual Override;
    - объяснить, что view построен из `trip_events`.
-5. Открыть любой trip из Calendar View или Trips List.
-6. В Trip Details выбрать событие, изменить date/status/zone/notes и указать override reason.
-7. Вернуться в Calendar View и показать, что событие обновилось.
-8. Открыть `Change History` и показать audit запись.
-9. Нажать `Export Demo JSON` или открыть `Export / Import` и показать normalized payload.
+9. Открыть `Change History` и показать audit запись.
+10. Нажать `Export Demo JSON` или открыть `Export / Import` и показать normalized payload.
 
 ## Вопросы для сбора обратной связи
 
-- Достаточно ли Gantt/calendar view для ежедневной операционной проверки?
+- Достаточно ли Schedule Board как главного экрана планирования?
+- В каких случаях бизнесу нужен Zone Calendar как advanced view?
+- Какие alerts должны быть приоритетными для operations?
 - Какие зоны должны быть подтверждены или переименованы?
 - Какой точный смысл pickup window для `NJ1 -> CA1`?
 - Как считать unloading date: от departure, arrival или delivery start?
@@ -75,8 +83,8 @@ Source of truth: routes / trips / trip_events / zones / schedule_rules / holiday
 - order-to-trip assignment;
 - dispatch optimization;
 - production calendar;
+- production alerting;
 - drag-and-drop;
 - pricing;
 - capacity planning;
 - automated holiday shifting without approved policy.
-

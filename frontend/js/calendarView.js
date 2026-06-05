@@ -35,7 +35,7 @@
       return `
         <section class="view-header">
           <div>
-            <h2>Calendar View</h2>
+            <h2>Zone Calendar</h2>
             <p>Generated Gantt view from normalized Trip Timeline records.</p>
           </div>
         </section>
@@ -86,7 +86,7 @@
     return `
       <section class="view-header">
         <div>
-          <h2>Calendar View</h2>
+          <h2>Zone Calendar</h2>
           <p>Derived from ${events.length} Trip Timeline records. No calendar cells are persisted.</p>
         </div>
       </section>

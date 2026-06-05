@@ -169,11 +169,13 @@ Business demo flow:
 
 1. Open `frontend/index.html`.
 2. Click `Generate 3-Month Schedule`.
-3. Review Calendar View and legend.
-4. Open any trip.
+3. Start with `Schedule Board` as the main trip-first planning screen.
+4. Open any trip into `Trip Timeline`.
 5. Change event date/status/zone/notes with an override reason.
-6. Open `Change History`.
-7. Export JSON with `Export Demo JSON` or `Export / Import`.
+6. Review `Schedule Alerts`.
+7. Use `Zone Calendar` only as the advanced zone/date calendar view.
+8. Open `Change History`.
+9. Export JSON with `Export Demo JSON` or `Export / Import`.
 
 Demo documents:
 

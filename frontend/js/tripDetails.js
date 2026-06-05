@@ -25,7 +25,7 @@
       return `
         <section class="view-header">
           <div>
-            <h2>Trip Details</h2>
+            <h2>Trip Timeline</h2>
             <p>Inspect the Trip Timeline and create manual overrides.</p>
           </div>
         </section>
@@ -56,7 +56,7 @@
     return `
       <section class="view-header">
         <div>
-          <h2>Trip Details</h2>
+          <h2>Trip Timeline</h2>
           <p>Manual changes update Trip Timeline records and create Change History entries.</p>
         </div>
       </section>

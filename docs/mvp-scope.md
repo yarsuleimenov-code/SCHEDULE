@@ -25,9 +25,11 @@ normalized schedule data -> generated Gantt/calendar view
   - `holidays`;
   - `audit_log`.
 - Calendar/Gantt View generated from `trip_events`.
+- Schedule Board as the main trip-first planning screen.
+- Zone Calendar as the advanced zone/date view.
 - Trips List.
-- Trip Details.
 - Trip Timeline.
+- Schedule Alerts.
 - Manual Override with required reason.
 - Change History.
 - Holidays visible in view.
@@ -65,13 +67,16 @@ Reasons to pause backend/API mode:
 - User can open `frontend/index.html`.
 - Header clearly says `Schedule Demo MVP`.
 - User can click `Generate 3-Month Schedule`.
+- User lands on Schedule Board after generation.
 - Trips are created.
 - `trip_events` are created.
-- Calendar/Gantt View renders from `trip_events`.
+- Schedule Board renders trips from normalized data.
+- Zone Calendar renders from `trip_events`.
 - Legend explains event types and manual override.
 - User can open a trip.
 - User can make manual override with reason.
 - Change History records the override.
+- Schedule Alerts shows holiday/manual override exceptions.
 - Holidays are visible.
 - Export Demo JSON includes normalized entities.
 - Smoke tests pass.
@@ -88,4 +93,3 @@ frontend + mock data + localStorage
 Deferred:
 backend/API connected mode
 ```
-

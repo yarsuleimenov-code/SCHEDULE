@@ -1,6 +1,6 @@
 (function () {
   let state = ScheduleStorage.loadState();
-  let activeView = "calendar";
+  let activeView = "board";
   let selectedTripId = "";
   let selectedEventId = "";
 
@@ -42,9 +42,11 @@
     });
 
     const views = {
+      board: ScheduleBoard.render,
       calendar: CalendarView.render,
       trips: TripsView.render,
       "trip-details": TripDetails.render,
+      alerts: ScheduleAlerts.render,
       rules: RulesView.render,
       zones: ZonesView.render,
       holidays: HolidaysView.render,
@@ -114,8 +116,8 @@
         start_date: document.getElementById("generate-start").value,
         months: document.getElementById("generate-months").value
       });
-      activeView = "calendar";
-      saveAndRender(`Generated ${result.generated_trips} trips and ${result.generated_events} events. Holiday warnings: ${result.warnings.length}.`);
+      activeView = "board";
+      saveAndRender(`Generated ${result.generated_trips} trips and ${result.generated_events} timeline records. Schedule alerts: ${result.warnings.length}.`);
     } catch (error) {
       setMessage(error.message, true);
     }
@@ -123,7 +125,7 @@
 
   document.getElementById("reset-data").addEventListener("click", () => {
     state = ScheduleStorage.resetState();
-    activeView = "calendar";
+    activeView = "board";
     selectedTripId = "";
     selectedEventId = "";
     setMessage("Mock data reset.");
@@ -157,7 +159,7 @@
       try {
         const payload = JSON.parse(document.getElementById("json-payload").value);
         state = ScheduleStorage.replaceState(payload);
-        activeView = "calendar";
+        activeView = "board";
         selectedTripId = "";
         selectedEventId = "";
         saveAndRender("JSON imported.");
