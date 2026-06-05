@@ -1,16 +1,16 @@
 (function () {
   function eventLabel(event) {
     const labels = {
-      pickup: "Pickup",
-      truck_loading: "Truck Loading",
-      departure: "Departure",
-      transit: "Transit",
-      delivery: "Delivery",
-      unloading: "Unloading",
-      holiday: "Holiday",
-      off: "Off"
+      pickup: "PU",
+      truck_loading: "LOAD",
+      departure: "DEP",
+      transit: "TR",
+      delivery: "DEL",
+      unloading: "UNLOAD",
+      holiday: "HOL",
+      off: "OFF"
     };
-    return `${labels[event.event_type] || event.event_type} / ${event.status}`;
+    return `<span class="event-code">${labels[event.event_type] || event.event_type}</span><span class="event-status">${event.status}</span>`;
   }
 
   function renderLegend() {

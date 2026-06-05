@@ -263,51 +263,118 @@ tr:hover td {
 }
 
 .event-chip {
-  border: 1px solid #cbd5e1;
+  border: 1px solid #64748b;
   border-radius: 6px;
+  color: #1f2933;
   display: block;
   font-size: 12px;
+  font-weight: 700;
   line-height: 1.25;
   margin: 3px 0;
-  padding: 4px 5px;
+  min-height: 34px;
+  padding: 5px 6px;
+  text-align: left;
+  width: 100%;
+}
+
+.event-chip:hover {
+  filter: brightness(0.97);
+}
+
+.event-code {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.event-status {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 1px;
+  opacity: 0.9;
 }
 
 .event-pickup {
-  border-left: 5px solid #2563eb;
+  background: #dbeafe;
+  border-color: #1d4ed8;
+  border-left: 6px solid #1d4ed8;
+  color: #1e3a8a;
 }
 
 .event-truck_loading {
-  border-left: 5px solid #7c3aed;
+  background: #ede9fe;
+  border-color: #6d28d9;
+  border-left: 6px solid #6d28d9;
+  color: #4c1d95;
 }
 
 .event-departure {
-  border-left: 5px solid #0f766e;
+  background: #dcfce7;
+  border-color: #15803d;
+  border-left: 6px solid #15803d;
+  color: #14532d;
 }
 
 .event-transit {
-  border-left: 5px solid #475569;
+  background: #e2e8f0;
+  border-color: #475569;
+  border-left: 6px solid #475569;
+  color: #1e293b;
 }
 
 .event-delivery {
-  border-left: 5px solid #b45309;
+  background: #ffedd5;
+  border-color: #c2410c;
+  border-left: 6px solid #c2410c;
+  color: #7c2d12;
 }
 
 .event-unloading {
-  border-left: 5px solid #be123c;
+  background: #ffe4e6;
+  border-color: #be123c;
+  border-left: 6px solid #be123c;
+  color: #881337;
 }
 
 .event-generated {
-  background: var(--generated);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
 }
 
 .event-manual_override {
-  background: var(--manual);
-  border-color: var(--accent);
+  border-color: #ea580c;
+  box-shadow: 0 0 0 2px #fdba74, inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  position: relative;
+}
+
+.event-manual_override::after {
+  background: #ea580c;
+  border-radius: 999px;
+  color: #ffffff;
+  content: "OVR";
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
 }
 
 .event-holiday {
-  background: var(--holiday);
-  border-color: #fb7185;
+  outline: 2px solid #dc2626;
+  outline-offset: 1px;
+  position: relative;
+}
+
+.event-holiday::before {
+  background: #dc2626;
+  border-radius: 999px;
+  content: "";
+  height: 8px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 8px;
 }
 
 .legend {
@@ -345,37 +412,50 @@ tr:hover td {
 }
 
 .legend-pickup {
-  border-left: 6px solid #2563eb;
+  background: #dbeafe;
+  border-color: #1d4ed8;
+  border-left: 6px solid #1d4ed8;
 }
 
 .legend-truck-loading {
-  border-left: 6px solid #7c3aed;
+  background: #ede9fe;
+  border-color: #6d28d9;
+  border-left: 6px solid #6d28d9;
 }
 
 .legend-departure {
-  border-left: 6px solid #0f766e;
+  background: #dcfce7;
+  border-color: #15803d;
+  border-left: 6px solid #15803d;
 }
 
 .legend-transit {
+  background: #e2e8f0;
+  border-color: #475569;
   border-left: 6px solid #475569;
 }
 
 .legend-delivery {
-  border-left: 6px solid #b45309;
+  background: #ffedd5;
+  border-color: #c2410c;
+  border-left: 6px solid #c2410c;
 }
 
 .legend-unloading {
+  background: #ffe4e6;
+  border-color: #be123c;
   border-left: 6px solid #be123c;
 }
 
 .legend-holiday {
-  background: var(--holiday);
-  border-color: #fb7185;
+  background: #ffffff;
+  border: 2px solid #dc2626;
 }
 
 .legend-override {
-  background: var(--manual);
-  border-color: var(--accent);
+  background: #ffffff7a;
+  border: 2px solid #ea580c;
+  box-shadow: 0 0 0 2px #fdba74;
 }
 
 .two-column {
