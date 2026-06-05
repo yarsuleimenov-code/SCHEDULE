@@ -26,7 +26,7 @@
         <section class="view-header">
           <div>
             <h2>Trip Details</h2>
-            <p>Inspect trip events and create manual overrides.</p>
+            <p>Inspect the Trip Timeline and create manual overrides.</p>
           </div>
         </section>
         <div class="empty-state">Generate schedule to inspect a trip.</div>
@@ -57,7 +57,7 @@
       <section class="view-header">
         <div>
           <h2>Trip Details</h2>
-          <p>Manual changes update trip_events and create audit_log records.</p>
+          <p>Manual changes update Trip Timeline records and create Change History entries.</p>
         </div>
       </section>
       <div class="two-column">
@@ -99,7 +99,7 @@
       </div>
 
       <section class="panel" style="margin-top: 16px;">
-        <h3>Trip Events</h3>
+        <h3>Trip Timeline</h3>
         <div class="table-wrap">
           <table>
             <thead><tr><th></th><th>Date</th><th>Type</th><th>Region</th><th>Zone</th><th>Status</th><th>Source</th><th>Holiday</th></tr></thead>
@@ -112,4 +112,3 @@
 
   window.TripDetails = { render };
 })();
-

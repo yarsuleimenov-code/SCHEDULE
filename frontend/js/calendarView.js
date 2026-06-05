@@ -1,6 +1,32 @@
 (function () {
   function eventLabel(event) {
-    return `${event.event_type.replace("_", " ")} / ${event.status}`;
+    const labels = {
+      pickup: "Pickup",
+      truck_loading: "Truck Loading",
+      departure: "Departure",
+      transit: "Transit",
+      delivery: "Delivery",
+      unloading: "Unloading",
+      holiday: "Holiday",
+      off: "Off"
+    };
+    return `${labels[event.event_type] || event.event_type} / ${event.status}`;
+  }
+
+  function renderLegend() {
+    return `
+      <div class="legend" aria-label="Gantt legend">
+        <span class="legend-title">Legend</span>
+        <span class="legend-item"><span class="legend-swatch legend-pickup"></span>Pickup</span>
+        <span class="legend-item"><span class="legend-swatch legend-truck-loading"></span>Truck Loading</span>
+        <span class="legend-item"><span class="legend-swatch legend-departure"></span>Departure</span>
+        <span class="legend-item"><span class="legend-swatch legend-transit"></span>Transit</span>
+        <span class="legend-item"><span class="legend-swatch legend-delivery"></span>Delivery</span>
+        <span class="legend-item"><span class="legend-swatch legend-unloading"></span>Unloading</span>
+        <span class="legend-item"><span class="legend-swatch legend-holiday"></span>Holiday</span>
+        <span class="legend-item"><span class="legend-swatch legend-override"></span>Manual Override</span>
+      </div>
+    `;
   }
 
   function render(state) {
@@ -10,9 +36,10 @@
         <section class="view-header">
           <div>
             <h2>Calendar View</h2>
-            <p>Generated from trip_events only.</p>
+            <p>Generated Gantt view from normalized Trip Timeline records.</p>
           </div>
         </section>
+        ${renderLegend()}
         <div class="empty-state">Generate schedule to render the calendar.</div>
       `;
     }
@@ -42,7 +69,7 @@
     const body = [...rows.values()].map((row) => {
       const cells = dates.map((date) => {
         const chips = (row.cells.get(date) || []).map((event) => {
-          const classes = ["event-chip", `event-${event.source}`];
+          const classes = ["event-chip", `event-${event.event_type}`, `event-${event.source}`];
           if (event.is_holiday) classes.push("event-holiday");
           return `<button class="${classes.join(" ")}" type="button" data-action="open-trip" data-trip-id="${event.trip_id}">${eventLabel(event)}</button>`;
         }).join("");
@@ -60,9 +87,10 @@
       <section class="view-header">
         <div>
           <h2>Calendar View</h2>
-          <p>Derived from ${events.length} trip_events. No calendar cells are persisted.</p>
+          <p>Derived from ${events.length} Trip Timeline records. No calendar cells are persisted.</p>
         </div>
       </section>
+      ${renderLegend()}
       <div class="table-wrap">
         <table class="calendar-table">
           <thead><tr><th>Route / Region / Zone</th>${header}</tr></thead>
@@ -74,4 +102,3 @@
 
   window.CalendarView = { render };
 })();
-

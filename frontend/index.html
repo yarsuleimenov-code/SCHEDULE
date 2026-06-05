@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Schedule Wireframe</title>
+    <title>Schedule Demo MVP</title>
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <header class="app-header">
       <div>
-        <h1>Schedule</h1>
-        <p>Normalized trips and trip events. Calendar is a generated view.</p>
+        <h1>Schedule Demo MVP</h1>
+        <p>Generated Gantt view from normalized schedule data. Calendar is not the source of truth.</p>
       </div>
       <div class="header-actions">
-        <button id="reset-data" class="secondary" type="button">Reset mock data</button>
+        <button id="export-demo-json" class="secondary" type="button">Export Demo JSON</button>
+        <button id="reset-data" class="secondary" type="button">Reset Demo Data</button>
       </div>
     </header>
 
@@ -30,7 +31,7 @@
         Months
         <input id="generate-months" type="number" min="1" max="6" value="3">
       </label>
-      <button id="generate-schedule" type="button">Generate schedule</button>
+      <button id="generate-schedule" type="button">Generate 3-Month Schedule</button>
       <span id="app-message" role="status"></span>
     </section>
 
@@ -38,11 +39,11 @@
       <button class="tab active" data-view="calendar" type="button">Calendar View</button>
       <button class="tab" data-view="trips" type="button">Trips List</button>
       <button class="tab" data-view="trip-details" type="button">Trip Details</button>
-      <button class="tab" data-view="rules" type="button">Rules Settings</button>
+      <button class="tab" data-view="rules" type="button">Generation Rules</button>
       <button class="tab" data-view="zones" type="button">Zones Reference</button>
       <button class="tab" data-view="holidays" type="button">Holidays</button>
       <button class="tab" data-view="export-import" type="button">Export / Import</button>
-      <button class="tab" data-view="audit-log" type="button">Audit Log</button>
+      <button class="tab" data-view="audit-log" type="button">Change History</button>
     </nav>
 
     <main id="app-root" class="app-root"></main>
@@ -61,4 +62,3 @@
     <script src="js/app.js"></script>
   </body>
 </html>
-

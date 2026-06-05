@@ -18,7 +18,7 @@
     return `
       <section class="view-header">
         <div>
-          <h2>Audit Log</h2>
+          <h2>Change History</h2>
           <p>Generation and manual overrides are recorded here.</p>
         </div>
       </section>
@@ -33,4 +33,3 @@
 
   window.AuditLogView = { render };
 })();
-

@@ -19,7 +19,7 @@
     return `
       <section class="view-header">
         <div>
-          <h2>Rules Settings</h2>
+          <h2>Generation Rules</h2>
           <p>Rules are stored as parameters and used by the generator.</p>
         </div>
       </section>
@@ -34,4 +34,3 @@
 
   window.RulesView = { render };
 })();
-

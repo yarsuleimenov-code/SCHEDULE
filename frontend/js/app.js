@@ -19,6 +19,15 @@
     if (text) setMessage(text);
   }
 
+  function downloadState(fileName) {
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  }
+
   function populateRouteSelect() {
     routeSelect.innerHTML = state.routes
       .filter((route) => route.active)
@@ -121,6 +130,10 @@
     render();
   });
 
+  document.getElementById("export-demo-json").addEventListener("click", () => {
+    downloadState("schedule-demo-export.json");
+  });
+
   root.addEventListener("click", (event) => {
     const openTrip = event.target.closest("[data-action='open-trip']");
     if (openTrip) {
@@ -137,12 +150,7 @@
     }
 
     if (event.target.id === "download-export") {
-      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "schedule-export.json";
-      link.click();
-      URL.revokeObjectURL(link.href);
+      downloadState("schedule-export.json");
     }
 
     if (event.target.id === "import-json") {

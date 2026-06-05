@@ -151,6 +151,35 @@ Phase 0 считается готовой, если:
 node tools/validate_schedule_data.js
 ```
 
+## Business Demo MVP
+
+Status: active demo priority.
+
+Demo mode:
+
+- frontend runs from `frontend/index.html`;
+- data is stored in `localStorage`;
+- seed data comes from mock data;
+- default route is `NJ1 -> CA1`;
+- schedule generation period is 3 months;
+- Calendar/Gantt View is generated from `trip_events`;
+- backend/API mode is intentionally paused for business demo.
+
+Business demo flow:
+
+1. Open `frontend/index.html`.
+2. Click `Generate 3-Month Schedule`.
+3. Review Calendar View and legend.
+4. Open any trip.
+5. Change event date/status/zone/notes with an override reason.
+6. Open `Change History`.
+7. Export JSON with `Export Demo JSON` or `Export / Import`.
+
+Demo documents:
+
+- [Business Demo Script](docs/business-demo-script.md)
+- [MVP Scope](docs/mvp-scope.md)
+
 ## Phase 1.1 Stabilization Before Backend
 
 Status: completed.

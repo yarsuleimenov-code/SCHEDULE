@@ -116,6 +116,13 @@ label {
   margin: 6px 0 0;
 }
 
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .generation-panel {
   align-items: end;
   background: #ffffff;
@@ -265,6 +272,30 @@ tr:hover td {
   padding: 4px 5px;
 }
 
+.event-pickup {
+  border-left: 5px solid #2563eb;
+}
+
+.event-truck_loading {
+  border-left: 5px solid #7c3aed;
+}
+
+.event-departure {
+  border-left: 5px solid #0f766e;
+}
+
+.event-transit {
+  border-left: 5px solid #475569;
+}
+
+.event-delivery {
+  border-left: 5px solid #b45309;
+}
+
+.event-unloading {
+  border-left: 5px solid #be123c;
+}
+
 .event-generated {
   background: var(--generated);
 }
@@ -277,6 +308,74 @@ tr:hover td {
 .event-holiday {
   background: var(--holiday);
   border-color: #fb7185;
+}
+
+.legend {
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+}
+
+.legend-title {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.legend-item {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.legend-swatch {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  display: inline-block;
+  height: 14px;
+  width: 24px;
+}
+
+.legend-pickup {
+  border-left: 6px solid #2563eb;
+}
+
+.legend-truck-loading {
+  border-left: 6px solid #7c3aed;
+}
+
+.legend-departure {
+  border-left: 6px solid #0f766e;
+}
+
+.legend-transit {
+  border-left: 6px solid #475569;
+}
+
+.legend-delivery {
+  border-left: 6px solid #b45309;
+}
+
+.legend-unloading {
+  border-left: 6px solid #be123c;
+}
+
+.legend-holiday {
+  background: var(--holiday);
+  border-color: #fb7185;
+}
+
+.legend-override {
+  background: var(--manual);
+  border-color: var(--accent);
 }
 
 .two-column {
@@ -346,4 +445,3 @@ tr:hover td {
     grid-template-columns: 1fr;
   }
 }
-
