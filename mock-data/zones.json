@@ -1,0 +1,12 @@
+[
+  { "id": "ZONE-NJ1-N", "region_code": "NJ1", "zone_code": "N", "zone_name": "North NJ", "state": "NJ", "active": true, "sort_order": 10 },
+  { "id": "ZONE-NJ1-S", "region_code": "NJ1", "zone_code": "S", "zone_name": "South NJ", "state": "NJ", "active": true, "sort_order": 20 },
+  { "id": "ZONE-NJ1-NY", "region_code": "NJ1", "zone_code": "NY", "zone_name": "New York", "state": "NY", "active": true, "sort_order": 30 },
+  { "id": "ZONE-NJ1-LI", "region_code": "NJ1", "zone_code": "LI", "zone_name": "Long Island", "state": "NY", "active": true, "sort_order": 40 },
+  { "id": "ZONE-NJ1-DC", "region_code": "NJ1", "zone_code": "DC", "zone_name": "DC Area", "state": "DC", "active": true, "sort_order": 50 },
+  { "id": "ZONE-NJ1-TR", "region_code": "NJ1", "zone_code": "TR", "zone_name": "Terminal", "state": "NJ", "active": true, "sort_order": 60 },
+  { "id": "ZONE-CA1-SF", "region_code": "CA1", "zone_code": "SF", "zone_name": "San Francisco", "state": "CA", "active": true, "sort_order": 10 },
+  { "id": "ZONE-CA1-N", "region_code": "CA1", "zone_code": "N", "zone_name": "Northern California", "state": "CA", "active": true, "sort_order": 20 },
+  { "id": "ZONE-CA1-S", "region_code": "CA1", "zone_code": "S", "zone_name": "Southern California", "state": "CA", "active": true, "sort_order": 30 }
+]
+

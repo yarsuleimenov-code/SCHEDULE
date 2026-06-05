@@ -1,0 +1,19 @@
+[
+  {
+    "id": "RULE-NJ1-CA1-2026",
+    "route_id": "ROUTE-NJ1-CA1",
+    "route_code": "NJ1_CA1",
+    "departure_interval_days": 9,
+    "pickup_window_days": 4,
+    "loading_offset_days": 1,
+    "transit_days": 4,
+    "delivery_window_days": 5,
+    "unloading_offset_days": 5,
+    "total_cycle_days": 9,
+    "holiday_policy": "mark_only",
+    "active_from": "2026-05-01",
+    "active_to": "2026-12-31",
+    "active": true
+  }
+]
+

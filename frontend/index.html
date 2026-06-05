@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schedule Wireframe</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Schedule</h1>
+        <p>Normalized trips and trip events. Calendar is a generated view.</p>
+      </div>
+      <div class="header-actions">
+        <button id="reset-data" class="secondary" type="button">Reset mock data</button>
+      </div>
+    </header>
+
+    <section class="generation-panel" aria-label="Generate schedule">
+      <label>
+        Route
+        <select id="generate-route"></select>
+      </label>
+      <label>
+        Start date
+        <input id="generate-start" type="date" value="2026-05-01">
+      </label>
+      <label>
+        Months
+        <input id="generate-months" type="number" min="1" max="6" value="3">
+      </label>
+      <button id="generate-schedule" type="button">Generate schedule</button>
+      <span id="app-message" role="status"></span>
+    </section>
+
+    <nav class="tabs" aria-label="Schedule sections">
+      <button class="tab active" data-view="calendar" type="button">Calendar View</button>
+      <button class="tab" data-view="trips" type="button">Trips List</button>
+      <button class="tab" data-view="trip-details" type="button">Trip Details</button>
+      <button class="tab" data-view="rules" type="button">Rules Settings</button>
+      <button class="tab" data-view="zones" type="button">Zones Reference</button>
+      <button class="tab" data-view="holidays" type="button">Holidays</button>
+      <button class="tab" data-view="export-import" type="button">Export / Import</button>
+      <button class="tab" data-view="audit-log" type="button">Audit Log</button>
+    </nav>
+
+    <main id="app-root" class="app-root"></main>
+
+    <script src="js/mockData.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/scheduleEngine.js"></script>
+    <script src="js/calendarView.js"></script>
+    <script src="js/tripsView.js"></script>
+    <script src="js/tripDetails.js"></script>
+    <script src="js/rulesView.js"></script>
+    <script src="js/zonesView.js"></script>
+    <script src="js/holidaysView.js"></script>
+    <script src="js/exportImport.js"></script>
+    <script src="js/auditLog.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+

@@ -122,3 +122,31 @@ Phase 0 считается готовой, если:
 
 Подтвердить документы и спорные бизнес-правила из [Business Rules](docs/business-rules.md), затем переходить к mock-data и функциональному wireframe.
 
+## Phase 1 Functional Wireframe
+
+Локальный frontend-прототип находится в `frontend/`.
+
+Запуск:
+
+```text
+Открыть frontend/index.html в браузере
+```
+
+Что доступно:
+
+- генерация schedule на 3 месяца;
+- хранение state в `localStorage`;
+- normalized source of truth: `routes`, `trips`, `trip_events`, `zones`, `schedule_rules`, `holidays`, `audit_log`;
+- Calendar View из `trip_events`;
+- Trips List;
+- Trip Details;
+- manual override event date / status / zone / notes;
+- audit log для генерации и override;
+- Export / Import JSON;
+- справочники rules, zones, holidays.
+
+Проверка mock data:
+
+```bash
+node tools/validate_schedule_data.js
+```

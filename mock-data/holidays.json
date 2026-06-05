@@ -1,0 +1,27 @@
+[
+  {
+    "id": "HOL-2026-05-25",
+    "holiday_date": "2026-05-25",
+    "holiday_name": "Memorial Day",
+    "country": "US",
+    "state": "federal",
+    "affects_schedule": true
+  },
+  {
+    "id": "HOL-2026-06-19",
+    "holiday_date": "2026-06-19",
+    "holiday_name": "Juneteenth",
+    "country": "US",
+    "state": "federal",
+    "affects_schedule": true
+  },
+  {
+    "id": "HOL-2026-07-04",
+    "holiday_date": "2026-07-04",
+    "holiday_name": "Independence Day",
+    "country": "US",
+    "state": "federal",
+    "affects_schedule": true
+  }
+]
+

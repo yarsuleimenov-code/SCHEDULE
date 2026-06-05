@@ -1,0 +1,12 @@
+[
+  {
+    "id": "ROUTE-NJ1-CA1",
+    "route_code": "NJ1_CA1",
+    "origin_region": "NJ1",
+    "destination_region": "CA1",
+    "route_name": "NJ to CA",
+    "active": true,
+    "notes": "Initial MVP route discovered from Schedule.xlsx"
+  }
+]
+
