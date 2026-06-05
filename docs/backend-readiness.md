@@ -171,3 +171,41 @@ Recommended minimum backend API order:
 
 These should remain outside the first backend skeleton unless business priority changes.
 
+## Phase 2 Backend Skeleton Result
+
+Status: implemented.
+
+Created backend skeleton:
+
+- Express server;
+- SQLite database;
+- SQL migration runner;
+- seed from `mock-data/*.json`;
+- repositories for normalized entities;
+- schedule generation service;
+- validation service;
+- API routers;
+- backend smoke test.
+
+Implemented endpoints:
+
+- `GET /api/health`
+- `GET /api/routes`
+- `GET /api/zones`
+- `GET /api/schedule-rules`
+- `GET /api/holidays`
+- `GET /api/trips`
+- `GET /api/trips/:id`
+- `GET /api/trip-events`
+- `PATCH /api/trip-events/:id`
+- `POST /api/schedule/generate`
+- `GET /api/schedule/calendar`
+- `GET /api/schedule/export`
+- `GET /api/audit-log`
+
+Backend rule preserved:
+
+```text
+Calendar endpoint returns records derived from trip_events in SQLite.
+No calendar cells are stored as source data.
+```

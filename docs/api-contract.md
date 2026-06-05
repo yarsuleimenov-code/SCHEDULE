@@ -4,11 +4,13 @@
 
 API v1 должен отдавать нормализованные сущности и generated calendar view. Calendar endpoint возвращает события, а не горизонтальные ячейки.
 
-Base path:
+Phase 2 backend base path:
 
 ```text
-/api/schedule
+/api
 ```
+
+Schedule-specific endpoints keep `/api/schedule/...`.
 
 ## Common Conventions
 
@@ -22,10 +24,7 @@ Base path:
 ## Routes
 
 ```http
-GET /api/schedule/routes
-POST /api/schedule/routes
-GET /api/schedule/routes/{id}
-PATCH /api/schedule/routes/{id}
+GET /api/routes
 ```
 
 Minimal response item:
@@ -44,11 +43,8 @@ Minimal response item:
 ## Trips
 
 ```http
-GET /api/schedule/trips
-POST /api/schedule/trips
-GET /api/schedule/trips/{id}
-PATCH /api/schedule/trips/{id}
-DELETE /api/schedule/trips/{id}
+GET /api/trips
+GET /api/trips/{id}
 ```
 
 Recommended filters:
@@ -66,10 +62,8 @@ source
 ## Trip Events
 
 ```http
-GET /api/schedule/trip-events
-POST /api/schedule/trip-events
-GET /api/schedule/trip-events/{id}
-PATCH /api/schedule/trip-events/{id}
+GET /api/trip-events
+PATCH /api/trip-events/{id}
 ```
 
 Manual override request:
@@ -93,10 +87,7 @@ Expected behavior:
 ## Zones
 
 ```http
-GET /api/schedule/zones
-POST /api/schedule/zones
-GET /api/schedule/zones/{id}
-PATCH /api/schedule/zones/{id}
+GET /api/zones
 ```
 
 Delete is not recommended for Phase 1. Use `active = false`.
@@ -104,10 +95,7 @@ Delete is not recommended for Phase 1. Use `active = false`.
 ## Schedule Rules
 
 ```http
-GET /api/schedule/schedule-rules
-POST /api/schedule/schedule-rules
-GET /api/schedule/schedule-rules/{id}
-PATCH /api/schedule/schedule-rules/{id}
+GET /api/schedule-rules
 ```
 
 Rules should be versioned by `active_from`, `active_to`, and `active`.
@@ -115,10 +103,7 @@ Rules should be versioned by `active_from`, `active_to`, and `active`.
 ## Holidays
 
 ```http
-GET /api/schedule/holidays
-POST /api/schedule/holidays
-GET /api/schedule/holidays/{id}
-PATCH /api/schedule/holidays/{id}
+GET /api/holidays
 ```
 
 Recommended filters:
@@ -213,6 +198,34 @@ POST /api/schedule/import
 POST /api/schedule/validate
 ```
 
+Phase 2 implemented only:
+
+```http
+GET /api/schedule/export
+```
+
+Import and validate endpoints remain planned.
+
+## Health
+
+```http
+GET /api/health
+```
+
+Response:
+
+```json
+{
+  "status": "OK"
+}
+```
+
+## Audit Log
+
+```http
+GET /api/audit-log
+```
+
 Export payload must include:
 
 ```json
@@ -241,4 +254,3 @@ Export payload must include:
   }
 }
 ```
-

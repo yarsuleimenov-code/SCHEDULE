@@ -1,0 +1,17 @@
+{
+  "name": "schedule-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Schedule microservice backend skeleton",
+  "main": "src/server.js",
+  "scripts": {
+    "migrate": "node src/db.js migrate",
+    "seed": "node src/seed/seedFromMockData.js",
+    "start": "node src/server.js",
+    "smoke": "node tests/smoke_test_backend.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
+

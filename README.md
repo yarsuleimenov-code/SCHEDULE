@@ -209,3 +209,94 @@ Codex bundled Node on this Windows workspace:
 & 'C:\Users\YarSuleimenov\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' tools\validate_schedule_data.js
 & 'C:\Users\YarSuleimenov\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' tools\smoke_test_schedule_engine.js
 ```
+
+## Phase 2 Backend Skeleton
+
+Status: implemented as minimal backend skeleton.
+
+Backend stack:
+
+- Node.js;
+- Express;
+- SQLite through built-in `node:sqlite`;
+- plain JavaScript;
+- SQL migrations;
+- repository/service/router structure;
+- no ORM;
+- no auth;
+- no CRM integration.
+
+Note for this Codex Windows runtime:
+
+```text
+Bundled Node is available, but npm is not available in PATH.
+The backend includes a small Express fallback adapter so smoke tests can run here.
+In a normal developer environment, run npm install and the real Express package will be used.
+```
+
+Install backend dependencies:
+
+```bash
+cd backend
+npm install
+```
+
+Run migration and seed:
+
+```bash
+cd backend
+npm run migrate
+npm run seed
+```
+
+Start backend:
+
+```bash
+cd backend
+npm start
+```
+
+Default URL:
+
+```text
+http://localhost:3001
+```
+
+Check health:
+
+```bash
+curl http://localhost:3001/api/health
+```
+
+Expected response:
+
+```json
+{
+  "status": "OK"
+}
+```
+
+Run backend smoke test:
+
+```bash
+cd backend
+npm run smoke
+```
+
+Codex bundled Node example:
+
+```powershell
+& 'C:\Users\YarSuleimenov\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' backend\tests\smoke_test_backend.js
+```
+
+Backend smoke test verifies:
+
+- SQLite DB is created;
+- migrations run;
+- mock data seed works;
+- health endpoint returns OK;
+- schedule generation creates `trips` and `trip_events`;
+- calendar endpoint returns events from DB;
+- manual override via PATCH sets `source = manual_override`;
+- PATCH creates `audit_log`;
+- export endpoint returns normalized entities.

@@ -55,3 +55,15 @@
 | UI/backend implementation waits for document confirmation | Accepted |
 | Exact offset formulas require operations confirmation | Open |
 
+## Phase 2 Backend Skeleton Limitations
+
+- SQLite uses Node.js built-in `node:sqlite`, which is experimental in the bundled Node runtime.
+- Local Codex runtime has Node but no npm; backend includes an Express fallback adapter for smoke tests until `npm install` installs the real Express package.
+- Backend has no authentication or role permissions.
+- Backend has no CRM integration.
+- Backend has no import endpoint yet.
+- Backend has no dedicated validate endpoint yet; validation is returned in export and covered by tests.
+- Schedule generation uses current Phase 1 date assumptions.
+- Holiday policy is implemented as mark-only behavior for MVP skeleton.
+- Manual override supports field updates and audit log, but no approval workflow.
+- Frontend still reads localStorage; connecting frontend to backend is a later phase.
